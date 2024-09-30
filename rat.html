@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rat Check</title>
+    <script>
+        function ratCheck() {
+            alert("Press OK to check if you are a rat?");
+            let first = prompt("Are you a rat? Enter YES or NO (If you're not sure, enter MAYBE)");
+            let output = "";
+
+            switch (first.toLowerCase()) {
+                case "yes":
+                    alert("You are a rat");
+                    break;
+                case "no":
+                    output = prompt("What is your name?");
+                    checkName(output);
+                    break;
+                case "maybe":
+                    output = prompt("How many walking legs do you have? Two or Four?");
+                    checkLegs(output);
+                    break;
+                default:
+                    while (!output || !["yes", "no", "maybe"].includes(output.toLowerCase())) {
+                        alert("DO AS I SAY. ONLY YES, NO, OR MAYBE");
+                        output = prompt("Just enter YES if you identify yourself as a rat, this is a safe space sweetheart");
+                    }
+                    ratCheck();
+                    break;
+            }
+        }
+
+        function checkName(name) {
+            if (name.toLowerCase() === "hein" || name.toLowerCase() === "hayden" || name.toLowerCase() === "bob") {
+                alert("HIIIIII RAT ^-^");
+            } else {
+                alert("Why are you wasting your time here then?");
+            }
+        }
+
+        function checkLegs(legs) {
+            if (legs.toLowerCase() === "two") {
+                let name = prompt("What is your name?");
+                checkName(name);
+            } else if (legs.toLowerCase() === "four") {
+                let ans = prompt("Can you read and write?");
+                if (ans.toLowerCase() === "yes") {
+                    let name = prompt("What is your name?");
+                    checkName(name);
+                } else if (ans.toLowerCase() === "no") {
+                    alert("YES YOU CAN. You're just a rat-wannabe");
+                } else {
+                    alert("BYE YOU ARE JUST STUPID");
+                }
+            } else {
+                alert("You are not a rat sweetie");
+            }
+        }
+    </script>
+</head>
+<body onload="ratCheck()">
+    <h1>Rat Check Application</h1>
+    <p>Check if you are a rat by answering the questions in the alerts.</p>
+</body>
+</html>
